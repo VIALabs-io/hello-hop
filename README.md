@@ -19,22 +19,28 @@ bridge.
 
 
 ```
-arbitrum-sepolia
-avalanche-testnet
-base-sepolia
-binance-testnet
-celo-testnet
-cronos-testnet
-fantom-testnet
-gauss-testnet
-gnosis-testnet
-harmony-testnet
-metis-testnet
-okex-testnet
-optimism-sepolia
-polygon-testnet
-polygonzk-testnet
-pulse-testnet
-scroll-testnet
-x1-testnet
+        "arbitrum-sepolia",
+        //"aurora-testnet",
+        "avalanche-testnet",
+        "base-sepolia",
+        "binance-testnet",
+        "canto-testnet",
+        "celo-testnet",
+        "cronos-testnet",
+        "fantom-testnet",
+        "gauss-testnet",
+        "gnosis-testnet",
+        "harmony-testnet",
+        "kava-testnet",
+        "linea-testnet",
+        "metis-testnet",
+        "oasis-emerald-testnet",
+        "oasis-sapphire-testnet",
+        "okex-testnet",
+        "optimism-sepolia",
+        "polygon-testnet",
+        "polygonzk-testnet",
+        "pulse-testnet",
+        "scroll-testnet",
+        "x1-testnet",
 ```
