@@ -50,20 +50,26 @@ const config: any = {
 			chainId: 195,
 			url: "https://testrpc.x1.tech/",
 			live: false,
-			accounts: accounts
+			accounts: accounts,
+		},
+		"aurora-testnet": {
+			chainId: 1313161555,
+			url: "https://testnet.aurora.dev",
+			live: false,
+			accounts: accounts,
 		},
 		"arbitrum-sepolia": {
 			chainId: 421614,
 			url: "https://sepolia-rollup.arbitrum.io/rpc",
 			live: false,
-			accounts: accounts
+			accounts: accounts,
 		},
 		"optimism-sepolia": {
 			chainId: 11155420,
 			url: "https://sepolia.optimism.io",
 			live: false,
-			accounts: accounts
-		},		
+			accounts: accounts,
+		},
 		"fantom-testnet": {
 			chainId: 4002,
 			url: "https://rpc.testnet.fantom.network",
@@ -77,6 +83,11 @@ const config: any = {
 		},
 		"binance-testnet": {
 			url: "https://data-seed-prebsc-2-s1.binance.org:8545",
+			live: false,
+			accounts: accounts,
+		},
+		"canto-testnet": {
+			url: "https://canto-testnet.plexnode.wtf",
 			live: false,
 			accounts: accounts,
 		},
@@ -100,6 +111,16 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
+		"kava-testnet": {
+			url:"https://evm.testnet.kava.io",
+			live: false,
+			accounts: accounts,
+		},
+		"linea-testnet": {
+			url: "https://rpc.goerli.linea.build",
+			live: false,
+			accounts: accounts,
+		},
 		"polygon-testnet": {
 			url: "https://rpc-mumbai.maticvigil.com/",
 			live: false,
@@ -109,42 +130,54 @@ const config: any = {
 			url: "https://rpc.public.zkevm-test.net",
 			live: false,
 			accounts: accounts,
-		},		
+		},
 		"gauss-testnet": {
 			url: "https://rpc.giltestnet.com",
 			live: false,
 			accounts: accounts,
 		},
-
 		"pulse-testnet": {
 			chainId: 943,
-			url: "https://rpc.v4.testnet.pulsechain.com",
+			url: "https://pulsechain-testnet.publicnode.com",
 			live: false,
 			accounts: accounts,
+		},
+		"oasis-emerald-testnet": {
+			chainId: 42261,
+			url: "https://testnet.emerald.oasis.dev",
+			live: false,
+			accounts: accounts,
+		},
+		"oasis-sapphire-testnet": {
+			chainId: 23295,
+			url: "https://testnet.sapphire.oasis.dev",
+			live: false,
+			accounts: accounts
 		},
 		"okex-testnet": {
 			chainId: 65,
 			url: "https://exchaintestrpc.okex.org",
 			live: false,
-			accounts: accounts
+			accounts: accounts,
 		},
 		"base-sepolia": {
 			chainId: 84532,
 			url: "https://sepolia.base.org",
 			live: false,
-			accounts: accounts
+			accounts: accounts,
 		},
 		"scroll-testnet": {
 			chainId: 534351,
 			url: "https://sepolia-rpc.scroll.io",
 			live: false,
-			accounts: accounts
+			accounts: accounts,
 		},
-		"gnosis-testnet": { // ?
+		"gnosis-testnet": {
+			// ?
 			chainId: 10200,
 			url: "https://rpc.chiadochain.net",
 			live: false,
-			accounts: accounts
+			accounts: accounts,
 		},
 		
 		// @note This MUST be hardhat, not localhost the docs are ambigious
