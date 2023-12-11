@@ -1,4 +1,5 @@
 const { exec } = require("child_process");
+const fs = require('fs');
 
 async function deploy() {
     const networks = [
@@ -7,25 +8,36 @@ async function deploy() {
         "avalanche-testnet",
         "base-sepolia",
         "binance-testnet",
+        "boba-testnet",
         "canto-testnet",
         "celo-testnet",
         "cronos-testnet",
+        "ethereum-goerli",
+        "ethereum-holesky",
+        "ethereum-sepolia",
         "fantom-testnet",
+        "frame-testnet",
         "gauss-testnet",
         "gnosis-testnet",
         "harmony-testnet",
         "kava-testnet",
+        "klaytn-testnet",
         "linea-testnet",
         "metis-testnet",
         "oasis-emerald-testnet",
         "oasis-sapphire-testnet",
         "okex-testnet",
+        "onus-testnet",
         "optimism-sepolia",
         "polygon-testnet",
         "polygonzk-testnet",
         "pulse-testnet",
+        "redstone-testnet",
         "scroll-testnet",
+        "telos-testnet",
         "x1-testnet",
+        "xdc-testnet",
+        "zetachain-testnet"
     ];
 
     let addresses = [];
@@ -47,9 +59,7 @@ async function deploy() {
         while(true) {
             console.log("setting up ATWTest on " + networks[x] + " ..");
             const res = await os.execCommand("npx hardhat --network "+networks[x]+" cl-atw-configure");
-            console.log(res);
             if(res !== false) {
-                console.log('setup.');
                 break;
             }
         }

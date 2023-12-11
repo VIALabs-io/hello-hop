@@ -5,24 +5,30 @@ const func: DeployFunction = async function (hre: any) {
 	const { deploy } = hre.deployments;
 
 	const chains = [
-		421614, // arbitrum-sepolia
-		43113, // avalanche-testnet
-		84532, // base-sepolia
-		97, // binance-testnet
-		44787, // celo-testnet
-		338, // cronos-testnet
-		4002, // fantom-testnet
-		1452, // gauss-testnet
-		10200, // gnosis-testnet
-		1666700000, // harmony-testnet
-		599, // metis-testnet
-		65, // okex-testnet
-		11155420, // optimism-sepolia
-		80001, // polygon-testnet
-		1442, // polygonzk-testnet
-		943, // pulse-testnet
-		534351, // scroll-testnet
-		195, // x1-testnet
+		"421614",
+		"43113",
+		"84532",
+		"97",
+		"7701",
+		"44787",
+		"338",
+		"4002",
+		"1452",
+		"10200",
+		"1666700000",
+		"2221",
+		"59140",
+		"599",
+		"42261",
+		"23295",
+		"65",
+		"11155420",
+		"80001",
+		"1442",
+		"943",
+		"534351",
+		"195",
+		"51"
 	];
 	
 	await deploy("ATWTest", {
