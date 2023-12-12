@@ -104,6 +104,7 @@ abstract contract MessageV3Client is Ownable {
             else if(block.chainid == 1313161555) _bridge = address(0x3B5b764229b2EdE0162220aF51ab6bf7f8527a4F); // Aurora Testnet
             else if(block.chainid == 43113)      _bridge = address(0x24BEFF24327C8E956d5FC74a5C502038683cDc0A); // Avalanche Testnet
             else if(block.chainid == 84532)      _bridge = address(0x18716F6E46a66919deacD3c6fd4fa6Da02fa30b2); // Base Testnet (sepolia)
+            else if(block.chainid == 2888)       _bridge = address(0xAF1f0C79cc043AD4a263dfe7715ca657F9bDeced); // Boba Testnet
             else if(block.chainid == 97)         _bridge = address(0x535CCeD6C471eE907eEB3bBECf1C8223208Ca5e0); // Binance Testnet
             else if(block.chainid == 7701)       _bridge = address(0x3B5b764229b2EdE0162220aF51ab6bf7f8527a4F); // Canto Testnet
             else if(block.chainid == 44787)      _bridge = address(0x6e658066340C7cae09dB68F5339Ddc4b806d3598); // Celo Testnet

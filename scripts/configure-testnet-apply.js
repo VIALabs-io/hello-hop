@@ -6,7 +6,7 @@ async function deploy() {
         "avalanche-testnet",
         "base-sepolia",
         "binance-testnet",
-        "boba-testnet",
+        //"boba-testnet", **
         "canto-testnet",
         "celo-testnet",
         "cronos-testnet",
@@ -31,7 +31,7 @@ async function deploy() {
         "polygonzk-testnet",
         "pulse-testnet",
         "redstone-testnet",
-        "scroll-testnet",
+        // "scroll-testnet", **
         "telos-testnet",
         "x1-testnet",
         "xdc-testnet",
@@ -40,12 +40,10 @@ async function deploy() {
 
     for(let x=0; x < networks.length; x++) {
         while(true) {
-            console.log("deploying ATWTest on " + networks[x] + " ..");
-            const res = await os.execCommand("npx hardhat --network "+networks[x]+" deploy --tags ATWTest");
+            console.log("setting up ATWTest on " + networks[x] + " ..");
+            const res = await os.execCommand("npx hardhat --network "+networks[x]+" cl-atw-configure");
             if(res !== false) {
                 break;
-            } else {
-                console.log(res);
             }
         }
     }

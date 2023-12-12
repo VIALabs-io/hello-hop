@@ -32,15 +32,32 @@ task("cl-atw-configure", "")
 
 		const atwTest = await ethers.getContract("ATWTest");
 
-		let prices:any = [];
-		let confirmations:any = [];
-		for(let x=0; x < chains.length; x++) {
-			prices.push(0);
-			confirmations.push(1);
+		let prices1:any = [];
+		let confirmations1:any = [];
+		let chains1:any = [];
+		let addresses1:any = [];
+		for(let x=0; (x < chains.length && x < 20); x++) {
+			prices1.push(0);
+			confirmations1.push(1);
+			chains1.push(chains[x]);
+			addresses1.push(addresses[x]);
 		} 
+		console.log('1');
+		await (await atwTest.configureBridge(ethers.ZeroAddress, chains1, prices1, addresses1, confirmations1, { gasLimit: GAS_LIMIT })).wait();
 
-		await (await atwTest.configureBridge(ethers.ZeroAddress, chains, prices, addresses, confirmations, { gasLimit: GAS_LIMIT })).wait();
-		
+		let prices2:any = [];
+		let confirmations2:any = [];
+		let chains2:any = [];
+		let addresses2: any = [];
+		for(let x=20; x < chains.length; x++) {
+			prices2.push(0);
+			confirmations2.push(1);
+			chains2.push(chains[x]);
+			addresses2.push(addresses[x]);
+		} 
+		console.log('2');
+		await (await atwTest.configureBridge(ethers.ZeroAddress, chains2, prices2, addresses2, confirmations2, { gasLimit: GAS_LIMIT })).wait();
+
 		console.log("Chain statuses set address set!");
 
 	});
