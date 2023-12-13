@@ -1,59 +1,69 @@
 # Around The World Bridge Example
 
-The ATWTest.sol contract sends a message from chain to chain, hop to hop, one after another, until
-it arrives back at the chain that originally sent the message. Uses the CryptoLink.Tech MessageV3
-bridge. 
+## Introduction
+The ATWTest.sol contract demonstrates a multi-chain communication protocol using the CryptoLink.Tech MessageV3 bridge. It sends a message across different blockchain networks in a loop, eventually returning to the original sender.
 
-1. Deploy
-   
-```node scripts/deploy-testnets.js```
+## Prerequisites
+- Node.js and npm installed
+- Solidity development environment setup (e.g., Truffle or Hardhat)
+- Basic understanding of smart contract deployment and interaction
 
-2. Dump Configuration:
+## Features
+- Deploy contracts across multiple blockchain networks
+- Send and receive messages between contracts on different chains
+- Track message hops across networks
 
-```node scripts/configure-testnet-create.js```
+## Configuration and Setup
+1. **Choose Networks**: Edit `networks.json` to select the blockchain networks for deployment.
 
-3. Apply Configuation:
-   
-```node scripts/configure-testnet-apply.js```
+    ```bash
+    vim networks.json
+    ```
 
-4. Execute:
+    Example networks include: Arbitrum Sepolia, Avalanche Testnet, Binance Testnet, Ethereum Goerli, Polygon Testnet, etc.
 
-```npx hardhat --network <network name> cl-atw-go```
+2. **Deploy Contracts**: Deploy the ATWTest.sol contract to the selected testnets.
 
+    ```bash
+    node scripts/deploy-testnets.js
+    ```
 
-```
-        "arbitrum-sepolia",
-        "avalanche-testnet",
-        "base-sepolia",
-        "binance-testnet",
-        //"boba-testnet", **
-        "canto-testnet",
-        "celo-testnet",
-        "cronos-testnet",
-        "ethereum-goerli",
-        "ethereum-holesky",
-        "ethereum-sepolia",
-        "fantom-testnet",
-        "frame-testnet",
-        "gauss-testnet",
-        "gnosis-testnet",
-        "harmony-testnet",
-        "kava-testnet",
-        "klaytn-testnet",
-        "linea-testnet",
-        "metis-testnet",
-        "oasis-emerald-testnet",
-        "oasis-sapphire-testnet",
-        "okex-testnet",
-        "onus-testnet",
-        "optimism-sepolia",
-        "polygon-testnet",
-        "polygonzk-testnet",
-        "pulse-testnet",
-        "redstone-testnet",
-        // "scroll-testnet", **
-        "telos-testnet",
-        "x1-testnet",
-        "xdc-testnet",
-        "zetachain-testnet"
-```
+3. **Dump Configuration**: Create configuration files for each network.
+
+    ```bash
+    node scripts/configure-testnet-create.js
+    ```
+
+4. **Apply Configuration**: Apply the generated configuration to each network.
+
+    ```bash
+    node scripts/configure-testnet-apply.js
+    ```
+
+5. **Execute Message Loop**: Start the message loop from a specified network.
+
+    ```bash
+    npx hardhat --network <network name> cl-atw-go
+    ```
+
+## Smart Contract Overview
+### ATWTest.sol
+- Inherits from `MessageV3Client` to enable cross-chain messaging.
+- Events: `Go`, `Completed`, `NextHop` for tracking the message flow.
+- `go(uint[] calldata _chainlist)`: Initiates the message loop across the specified chain list.
+- `messageProcess(...)`: Handles received messages and determines the next hop.
+- Internal logic for determining the next chain in the loop.
+
+## Usage
+1. Deploy the contract to your chosen networks using the provided scripts.
+2. Start the message loop by executing the `go` function with a list of chain IDs.
+3. Monitor events to track the progress of the message across networks.
+
+## Contribution
+Feel free to contribute to this project by submitting issues or pull requests.
+
+## Contact
+For more information, contact Atlas at atlas@cryptolink.tech
+
+## License
+This project is licensed under the MIT License.

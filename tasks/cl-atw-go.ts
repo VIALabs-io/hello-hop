@@ -14,7 +14,7 @@ task("cl-atw-go", "")
 		let signer = deployer;
 		if (args.signer) signer = new ethers.Wallet(args.signer, new ethers.providers.JsonRpcProvider(args.provider));
 
-		const chainlist = [
+		const path = [
 			"421614",
 			"43113",
 			"84532",
@@ -53,6 +53,6 @@ task("cl-atw-go", "")
 
 
 		const atwTest = await ethers.getContract("ATWTest");
-		await(await atwTest.connect(signer).go(chainlist, { gasLimit: GAS_LIMIT })).wait();
+		await(await atwTest.connect(signer).go(path, { gasLimit: GAS_LIMIT })).wait();
 		console.log('started around the world test');
 	});

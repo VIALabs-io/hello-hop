@@ -2,7 +2,7 @@
 // (c)2023 Atlas (atlas@cryptolink.tech)
 pragma solidity =0.8.17;
 
-import "./includes/MessageV3Client.sol";
+import "@cryptolink/contracts/bridge/MessageV3Client.sol";
 
 contract ATWTest is MessageV3Client {
     event Go();
@@ -32,7 +32,7 @@ contract ATWTest is MessageV3Client {
         // decode message
         (uint _startChainId, uint _hop, uint[] memory _chainlist) = abi.decode(_data, (uint, uint, uint[]));
 
-        if(_startChainId == block.chainid) {
+        if(_hop >= _chainlist.length) {
             // if we are where the message started, we are done, we went around all of the chains!
             emit Completed(_startChainId, _hop);
         } else {
