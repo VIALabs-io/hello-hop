@@ -2,9 +2,9 @@
 // (c)2023 Atlas (atlas@cryptolink.tech)
 pragma solidity =0.8.17;
 
-import "@cryptolink/contracts/bridge/MessageV3Client.sol";
+import "@cryptolink/contracts/message/MessageClient.sol";
 
-contract ATWTest is MessageV3Client {
+contract ATWTest is MessageClient {
     event Go();
     event Completed(uint _startChainId, uint hops);
     event NextHop(uint startChainId, uint hops);
@@ -19,7 +19,7 @@ contract ATWTest is MessageV3Client {
         bytes memory _data = abi.encode(block.chainid, 0, _chainlist);
 
         // send message
-        _sendMessage(_chainlist[_getNextChainIndex(_chainlist)], address(0), _data);
+        _sendMessage(_chainlist[1], _data);
 
         emit Go();
     }
@@ -32,15 +32,16 @@ contract ATWTest is MessageV3Client {
         // decode message
         (uint _startChainId, uint _hop, uint[] memory _chainlist) = abi.decode(_data, (uint, uint, uint[]));
 
+        _hop++;
+
         if(_hop >= _chainlist.length) {
-            // if we are where the message started, we are done, we went around all of the chains!
             emit Completed(_startChainId, _hop);
         } else {
             // create cross chain message
-            bytes memory _newData = abi.encode(_startChainId, _hop+1, _chainlist);
+            bytes memory _newData = abi.encode(_startChainId, _hop, _chainlist);
 
             // send message
-            _sendMessage(_chainlist[_getNextChainIndex(_chainlist)], address(0), _newData);
+            _sendMessage(_chainlist[_hop], _newData);
 
             emit NextHop(_startChainId, _hop);
         }

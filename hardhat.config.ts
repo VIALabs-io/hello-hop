@@ -148,6 +148,12 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
+		"immutable-testnet": {
+			chainId: 13473,
+			url: "https://rpc.testnet.immutable.com/",
+			live: false,
+			accounts: accounts,
+		},		
 		"kava-testnet": {
 			chainId: 2221,
 			url: "https://evm.testnet.kava.io",
@@ -157,6 +163,12 @@ const config: any = {
 		"klaytn-testnet": {
 			chainId: 1001,
 			url: "https://public-en-baobab.klaytn.net",
+			live: false,
+			accounts: accounts,
+		},
+		"kyoto-testnet": {
+			chainId: 1998,
+			url: "https://rpc.testnet.kyotoprotocol.io:8545",
 			live: false,
 			accounts: accounts,
 		},		

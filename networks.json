@@ -1,5 +1,6 @@
 [
     "arbitrum-sepolia",
+    "aurora-testnet",
     "avalanche-testnet",
     "base-sepolia",
     "binance-testnet",
@@ -14,8 +15,10 @@
     "gauss-testnet",
     "gnosis-testnet",
     "harmony-testnet",
+    "immutable-testnet",
     "kava-testnet",
     "klaytn-testnet",
+    "kyoto-testnet",
     "linea-testnet",
     "metis-testnet",
     "oasis-emerald-testnet",
