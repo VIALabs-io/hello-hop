@@ -1,8 +1,8 @@
-
-# Around The World Example
+# Around The World Bridge Example
 
 ## Introduction
 
+The "Around The World Bridge Example" is a hands-on project for blockchain developers centered on the practical use of CryptoLink's npm package and the `MessageClient` class. This project is not just about showcasing cross-chain messaging; it also serves as a practical guide for deploying and managing multi-chain projects, particularly for those using Hardhat. It includes example scripts and tasks that illustrate how to set up and configure contracts across various blockchain networks, providing a real-world application of CryptoLink's technologies. This project is ideal for developers seeking to integrate cross-chain communication in their applications and looking for ways to manage complex blockchain deployments efficiently.
 
 ## Project Overview
 The "Around The World Example" (ATWTest) provides a hands-on experience of using the CryptoLink package for developers looking to integrate cross-chain functionalities into their blockchain applications. It features a smart contract, `ATWTest.sol`, that extends the `MessageClient` class to facilitate a continuous message loop across multiple blockchain networks. This loop demonstrates the intricate process of sending, receiving, and tracking messages in a multi-chain environment.
