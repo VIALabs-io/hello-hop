@@ -5,7 +5,7 @@
 
 
 ## Project Overview
-The "Around The World Bridge Example" (ATWTest) provides a hands-on experience of using the CryptoLink package for developers looking to integrate cross-chain functionalities into their blockchain applications. It features a smart contract, `ATWTest.sol`, that extends the `MessageClient` class to facilitate a continuous message loop across multiple blockchain networks. This loop demonstrates the intricate process of sending, receiving, and tracking messages in a multi-chain environment.
+The "Around The World Example" (ATWTest) provides a hands-on experience of using the CryptoLink package for developers looking to integrate cross-chain functionalities into their blockchain applications. It features a smart contract, `ATWTest.sol`, that extends the `MessageClient` class to facilitate a continuous message loop across multiple blockchain networks. This loop demonstrates the intricate process of sending, receiving, and tracking messages in a multi-chain environment.
 
 ## Learning Objectives
 - Understand the setup and usage of the CryptoLink npm package in a blockchain project.
@@ -20,13 +20,11 @@ The "Around The World Bridge Example" (ATWTest) provides a hands-on experience o
 
 
 ## Features
-- **Cross-chain Message Passing**: Demonstrates how to send and receive messages between contracts deployed on different blockchain networks using CryptoLink's MessageV3 bridge.
+- **Cross-chain Message Passing**: Demonstrates how to send and receive messages between contracts deployed on different blockchain networks using CryptoLink's MessageV3 system.
 - **Network Hopping**: Shows the ability of a message to traverse multiple networks and return to the origin, illustrating the robustness of the CryptoLink framework.
 - **Event Tracking**: Implements event logs to track the progress and route of the message across various chains, providing visibility into the cross-chain communication process.
 
 ## Usage Instructions
-
-To effectively utilize the "Around The World Bridge Example," follow these detailed steps:
 
 1. **Select Networks**: Choose the blockchain networks for deployment by editing `networks-testnet.json`.
    ```bash
@@ -67,7 +65,7 @@ To effectively utilize the "Around The World Bridge Example," follow these detai
 
 ## Contributing to the Project
 
-We welcome contributions to the "Around The World Bridge Example" project! Whether it's feature enhancements, bug fixes, documentation improvements, or additional examples, your input is valuable. Here’s how you can contribute:
+We welcome contributions to the "Around The World Example" project! Whether it's feature enhancements, bug fixes, documentation improvements, or additional examples, your input is valuable. Here’s how you can contribute:
 
 1. **Submit Issues**: If you find bugs or have feature suggestions, please submit them as issues on the GitHub repository.
 2. **Pull Requests**: Feel free to fork the repository and submit pull requests with your changes.
