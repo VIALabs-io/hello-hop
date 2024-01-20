@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 async function deploy() {
-    const networks = require("../networks-testnet.json");
+    const networks = require("../networks-mainnet.json");
 
     let addresses = [];
     let chainids = [];
@@ -13,9 +13,9 @@ async function deploy() {
     }
 
     let jsonChains = JSON.stringify(chainids, false, 2);
-    fs.writeFileSync('chains-testnet.json', jsonChains);
+    fs.writeFileSync('chains-mainnet.json', jsonChains);
 
     let jsonAddresses = JSON.stringify(addresses, false, 2);
-    fs.writeFileSync('addresses-testnet.json', jsonAddresses);
+    fs.writeFileSync('addresses-mainnet.json', jsonAddresses);
 }
 deploy();

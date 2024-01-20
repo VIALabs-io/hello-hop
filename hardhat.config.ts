@@ -268,7 +268,256 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},		
+
 		
+		"alveychain-mainnet": {
+			chainId: 3797,
+			url: "https://elves-core1.alvey.io/",
+			live: true,
+			accounts: accounts,
+		},
+		"arbitrum-mainnet": {
+			chainId: 42161,
+			url: "https://arbitrum-one.public.blastapi.io",
+			live: true,
+			accounts: accounts,
+		},
+		"aurora-mainnet": {
+			chainId: 1313161554,
+			url: "https://mainnet.aurora.dev",
+			live: true,
+			accounts: accounts,
+		},
+		"autonity-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"avalanche-mainnet": {
+			chainId: 43114,
+			url: "https://api.avax.network/ext/bc/C/rpc",
+			live: true,
+			accounts: accounts,
+		},
+		"base-mainnet": {
+			chainId: 8453,
+			url: "https://base.llamarpc.com",
+			live: true,
+			accounts: accounts,
+		},
+		"boba-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"binance-mainnet": {
+			chainId: 56,
+			url: "https://bsc-dataseed.binance.org",
+			live: true,
+			accounts: accounts,
+		},
+		"canto-mainnet": {
+			chainId: 7700,
+			url: "https://canto.slingshot.finance",
+			live: true,
+			accounts: accounts,
+		},		
+		"celo-mainnet": {
+			chainId: 42220,
+			url: "https://rpc.ankr.com/celo",
+			live: true,
+			accounts: accounts,
+		},
+		"cronos-mainnet": {
+			chainId: 25,
+			url: "https://cronos-evm.publicnode.com",
+			live: true,
+			accounts: accounts,
+		},
+		"ethereum-mainnet": {
+			chainId: 1,
+			url: "https://ethereum.publicnode.com",
+			live: true,
+			accounts: accounts,
+		},
+		"fantom-mainnet": {
+			chainId: 250,
+			url: "https://rpc.ankr.com/fantom",
+			live: true,
+			accounts: accounts,
+		},
+		"forest-mainnet": {
+			chainId: 484,
+			url: "",
+			live: true,
+			accounts: accounts,
+		},
+		"frame-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"gauss-mainnet": {
+			chainId: 1777,
+			url: "https://rpc.gaussgang.com/",
+			live: true,
+			accounts: accounts,
+		},
+		"gnosis-mainnet": {
+			chainId: 100,
+			url: "https://gnosis.drpc.org",
+			live: true,
+			accounts: accounts,
+		},
+		"harmony-mainnet": {
+			chainId: 1666600000,
+			url: "https://a.api.s0.t.hmny.io",
+			live: true,
+			accounts: accounts,
+		},
+		"horizen-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"katla-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"kava-mainnet": {
+			chainId: 2222,
+			url: "https://evm.kava.io",
+			live: true,
+			accounts: accounts,
+		},
+		"klaytn-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"linea-mainnet": {
+			chainId: 59144,
+			url: "https://rpc.linea.build",
+			live: true,
+			accounts: accounts,
+		},
+		"mainnetz-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"metis-mainnet": {
+			chainId: 1088,
+			url: "https://andromeda.metis.io/?owner=1088",
+			live: true,
+			accounts: accounts,
+		},
+		"oasis-emerald-mainnet": {
+			chainId: 42262,
+			url: "https://emerald.oasis.dev",
+			live: true,
+			accounts: accounts,
+		},
+		"oasis-sapphire-mainnet": {
+			chainId: 23294,
+			url: "https://sapphire.oasis.dev",
+			live: true,
+			accounts: accounts,
+		},
+		"okex-mainnet": {
+			chainId: 66,
+			url: "https://exchainrpc.okex.org",
+			live: true,
+			accounts: accounts,
+		},
+		"onus-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"opbnb-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"optimism-mainnet": {
+			chainId: 10,
+			url: "https://rpc.ankr.com/optimism",
+			live: true,
+			accounts: accounts,
+		},
+		"polygon-mainnet": {
+			chainId: 137,
+			url: "https://polygon-rpc.com",
+			live: true,
+			accounts: accounts,
+		},
+		"polygonzk-mainnet": {
+			chainId: 1101,
+			url: "https://polygon-zkevm.drpc.org",
+			live: true,
+			accounts: accounts,
+		},
+		"pulse-mainnet": {
+			chainId: 369,
+			url: "https://rpc.pulsechain.com/",
+			live: true,
+			accounts: accounts,
+		},
+		"redstone-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"rollux-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"scroll-mainnet": {
+			chainId: 534352,
+			url: "https://rpc.scroll.io",
+			live: true,
+			accounts: accounts,
+		},
+		"telos-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+		"x1-mainnet": {
+			chainId: 196,
+			url: "",
+			live: true,
+			accounts: accounts,
+		},
+		"xdc-mainnet": {
+			chainId: 50,
+			url: "https://erpc.xinfin.network",
+			live: true,
+			accounts: accounts,
+		},
+		"zetachain-mainnet": {
+			chainId: 0,
+			url: "",
+			live: true,
+			accounts: accounts
+		},
+
+
 		// @note This MUST be hardhat, not localhost the docs are ambigious
 		hardhat: {
 			live: false,

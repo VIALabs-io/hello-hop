@@ -1,16 +1,14 @@
 const { exec } = require("child_process");
 
 async function deploy() {
-    const networks = require("../networks-testnet.json");
-    
+    const networks = require("../networks-mainnet.json");
+
     for(let x=0; x < networks.length; x++) {
         while(true) {
-            console.log("deploying ATWTest on " + networks[x] + " ..");
-            const res = await os.execCommand("npx hardhat --network "+networks[x]+" deploy --tags ATWTest");
+            console.log("setting up ATWTest on " + networks[x] + " ..");
+            const res = await os.execCommand("npx hardhat --network "+networks[x]+" cl-atw-configure");
             if(res !== false) {
                 break;
-            } else {
-                console.log(res);
             }
         }
     }

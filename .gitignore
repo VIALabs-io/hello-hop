@@ -10,8 +10,10 @@ deployments/
 
 addresses-testnet.json
 chains-testnet.json
-address.json
-chains.json
+addresses-tetnet.json
+chains-testnet.json
+addresses-mainnet.json
+chains-mainnet.json
 
 #Hardhat files
 cache

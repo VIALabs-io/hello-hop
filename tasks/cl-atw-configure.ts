@@ -1,4 +1,6 @@
 import { task } from "hardhat/config";
+const chainsConfig = require('@cryptolink/contracts/config/chains');
+
 const fs = require('fs');
 
 // bugfix for metis + ethers6
@@ -19,10 +21,12 @@ task("cl-atw-configure", "")
 		let chains:any;
 		let addresses:any;
 		if (hre.network.live) {
-
+			console.log("Configuring for LIVE networks");
+			chains = JSON.parse(fs.readFileSync("chains-mainnet.json"));
+			addresses = JSON.parse(fs.readFileSync("addresses-mainnet.json"));
 		} else {
 			console.log("Configuring for TEST networks");
-			chains = JSON.parse(fs.readFileSync("chains-testnet.json"));
+			chains = JSON.parse(fs.readFileSync("temp-testnet.json"));
 			addresses = JSON.parse(fs.readFileSync("addresses-testnet.json"));
 		}
 
@@ -37,9 +41,11 @@ task("cl-atw-configure", "")
 			confirmations1.push(1);
 			chains1.push(chains[x]);
 			addresses1.push(addresses[x]);
-		} 
-		console.log('setting first set of contract addresses ..');
-		await (await atwTest.configureBridge(ethers.ZeroAddress, chains1, prices1, addresses1, confirmations1, { gasLimit: GAS_LIMIT })).wait();
+		}
+		if(prices1.length > 0) {
+			console.log('setting first set of contract addresses .. CLT message address:', chainsConfig[hre.network.config.chainId].message);
+			await (await atwTest.configureClient(chainsConfig[hre.network.config.chainId].message, chains1, addresses1, confirmations1, { gasLimit: GAS_LIMIT })).wait();
+		}
 
 		let prices2:any = [];
 		let confirmations2:any = [];
@@ -50,10 +56,11 @@ task("cl-atw-configure", "")
 			confirmations2.push(1);
 			chains2.push(chains[x]);
 			addresses2.push(addresses[x]);
-		} 
-		console.log('setting second set of contract addresses ..');
-		await (await atwTest.configureBridge(ethers.ZeroAddress, chains2, prices2, addresses2, confirmations2, { gasLimit: GAS_LIMIT })).wait();
+		}
+		if(prices2.length > 0) {
+			console.log('setting second set of contract addresses .. CLT message address:', chainsConfig[hre.network.config.chainId].message);
+			await (await atwTest.configureClient(chainsConfig[hre.network.config.chainId].message, chains2, addresses2, confirmations2, { gasLimit: GAS_LIMIT })).wait();
+		}
 
 		console.log("Chain statuses set address set!");
-
 	});

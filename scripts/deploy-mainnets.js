@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
 
 async function deploy() {
-    const networks = require("../networks-testnet.json");
+    const networks = require("../networks-mainnet.json");
     
     for(let x=0; x < networks.length; x++) {
         while(true) {
