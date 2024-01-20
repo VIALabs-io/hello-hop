@@ -1,69 +1,86 @@
+
 # Around The World Bridge Example
 
 ## Introduction
-The ATWTest.sol contract demonstrates a multi-chain communication protocol using the CryptoLink.Tech MessageV3 bridge. It sends a message across different blockchain networks in a loop, eventually returning to the original sender.
+
+
+## Project Overview
+The "Around The World Bridge Example" (ATWTest) provides a hands-on experience of using the CryptoLink package for developers looking to integrate cross-chain functionalities into their blockchain applications. It features a smart contract, `ATWTest.sol`, that extends the `MessageClient` class to facilitate a continuous message loop across multiple blockchain networks. This loop demonstrates the intricate process of sending, receiving, and tracking messages in a multi-chain environment.
+
+## Learning Objectives
+- Understand the setup and usage of the CryptoLink npm package in a blockchain project.
+- Learn how to extend and implement the `MessageClient` class for cross-chain messaging.
+- Explore the configuration and deployment of smart contracts on various networks.
+- Gain insights into tracking and monitoring cross-chain message flows.
 
 ## Prerequisites
-- Node.js and npm installed
-- Solidity development environment setup (e.g., Truffle or Hardhat)
-- Basic understanding of smart contract deployment and interaction
+- Familiarity with Node.js, npm, and basic command-line operations.
+- Experience with Solidity and smart contract development.
+- Access to a Solidity development environment, such as Truffle or Hardhat.
+
 
 ## Features
-- Deploy contracts across multiple blockchain networks
-- Send and receive messages between contracts on different chains
-- Track message hops across networks
+- **Cross-chain Message Passing**: Demonstrates how to send and receive messages between contracts deployed on different blockchain networks using CryptoLink's MessageV3 bridge.
+- **Network Hopping**: Shows the ability of a message to traverse multiple networks and return to the origin, illustrating the robustness of the CryptoLink framework.
+- **Event Tracking**: Implements event logs to track the progress and route of the message across various chains, providing visibility into the cross-chain communication process.
 
-## Configuration and Setup
-1. **Choose Networks**: Edit `networks.json` to select the blockchain networks for deployment.
 
-    ```bash
-    vim networks.json
-    ```
 
-    Example networks include: Arbitrum Sepolia, Avalanche Testnet, Binance Testnet, Ethereum Goerli, Polygon Testnet, etc.
+   ```
 
-2. **Deploy Contracts**: Deploy the ATWTest.sol contract to the selected testnets.
+## Usage Instructions
 
-    ```bash
-    node scripts/deploy-testnets.js
-    ```
+To effectively utilize the "Around The World Bridge Example," follow these detailed steps:
 
-3. **Dump Configuration**: Create configuration files for each network.
+1. **Select Networks**: Choose the blockchain networks for deployment by editing `networks-testnet.json`.
+   ```bash
+   vim networks-testnet.json
+   ```
+   Example networks include Arbitrum Sepolia, Avalanche Testnet, Binance Testnet, Ethereum Goerli, Polygon Testnet, and others.
 
-    ```bash
-    node scripts/configure-testnet-create.js
-    ```
+2. **Deploy `ATWTest.sol` Contract**:
+   Deploy the contract to your chosen networks. Run the following command in your project directory:
+   ```bash
+   node scripts/deploy-testnets.js
+   ```
+   This script automates the deployment process across the specified blockchain networks.
 
-4. **Apply Configuration**: Apply the generated configuration to each network.
+3. **Generate Network Configurations**:
+   After deployment, generate configuration files for each network:
+   ```bash
+   node scripts/configure-testnet-create.js
+   ```
+   This script creates necessary configuration files based on your network selections.
 
-    ```bash
-    node scripts/configure-testnet-apply.js
-    ```
+4. **Apply Configurations to Networks**:
+   Implement the generated configurations on each network:
+   ```bash
+   node scripts/configure-testnet-apply.js
+   ```
+   This step ensures that the `ATWTest.sol` contract on each chain is correctly configured to participate in the message loop.
 
-5. **Execute Message Loop**: Start the message loop from a specified network.
+5. **Initiate the Message Loop**:
+   Start the message loop from a specific network using the `cl-atw-go.ts` script. Replace `<network name>` with the name of the network from which you want to start the loop:
+   ```bash
+   npx hardhat --network <network name> cl-atw-go
+   ```
+   This command triggers the `go` function in the `ATWTest.sol` contract, beginning the cross-chain message loop.
 
-    ```bash
-    npx hardhat --network <network name> cl-atw-go
-    ```
+6. **Monitoring Progress**:
+   To track the message's journey, monitor the emitted events (`Go`, `Completed`, `NextHop`) on the blockchain explorers of the involved networks. This will provide insights into the message flow and the cross-chain interactions facilitated by the contract.
 
-## Smart Contract Overview
-### ATWTest.sol
-- Inherits from `MessageV3Client` to enable cross-chain messaging.
-- Events: `Go`, `Completed`, `NextHop` for tracking the message flow.
-- `go(uint[] calldata _chainlist)`: Initiates the message loop across the specified chain list.
-- `messageProcess(...)`: Handles received messages and determines the next hop.
-- Internal logic for determining the next chain in the loop.
+## Contributing to the Project
 
-## Usage
-1. Deploy the contract to your chosen networks using the provided scripts.
-2. Start the message loop by executing the `go` function with a list of chain IDs.
-3. Monitor events to track the progress of the message across networks.
+We welcome contributions to the "Around The World Bridge Example" project! Whether it's feature enhancements, bug fixes, documentation improvements, or additional examples, your input is valuable. Here’s how you can contribute:
 
-## Contribution
-Feel free to contribute to this project by submitting issues or pull requests.
+1. **Submit Issues**: If you find bugs or have feature suggestions, please submit them as issues on the GitHub repository.
+2. **Pull Requests**: Feel free to fork the repository and submit pull requests with your changes.
+3. **Feedback and Ideas**: Share your feedback and ideas on how to improve the project or what additional examples you'd like to see.
 
 ## Contact
-For more information, contact Atlas at atlas@cryptolink.tech
+
+For more information or if you have specific questions about the project, please reach out to Atlas at atlas@cryptolink.tech. We are eager to assist and collaborate with fellow developers and enthusiasts in the blockchain community.
 
 ## License
-This project is licensed under the MIT License.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file in the GitHub repository for details. The MIT License is a permissive license that is short and to the point. It lets people do anything they want with your code as long as they provide attribution back to you and don’t hold you liable.
