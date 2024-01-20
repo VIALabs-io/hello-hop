@@ -1,5 +1,5 @@
 
-# Around The World Bridge Example
+# Around The World Example
 
 ## Introduction
 
@@ -23,10 +23,6 @@ The "Around The World Bridge Example" (ATWTest) provides a hands-on experience o
 - **Cross-chain Message Passing**: Demonstrates how to send and receive messages between contracts deployed on different blockchain networks using CryptoLink's MessageV3 bridge.
 - **Network Hopping**: Shows the ability of a message to traverse multiple networks and return to the origin, illustrating the robustness of the CryptoLink framework.
 - **Event Tracking**: Implements event logs to track the progress and route of the message across various chains, providing visibility into the cross-chain communication process.
-
-
-
-   ```
 
 ## Usage Instructions
 
