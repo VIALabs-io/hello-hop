@@ -1,11 +1,12 @@
 # HelloHOP Path Following Message Example
 
+`HelloHOP` is an example implementation designed to demonstrate the capabilities of CryptoLink.Tech technology in facilitating cross-chain message passing. This sample contract illustrates the use of the [CryptoLink.Tech NPM package](https://github.com/CryptoLinkTech/npm) for enabling messages to traverse multiple blockchain networks via a predefined sequence of chain IDs. It serves primarily as a technical showcase, highlighting the mechanics of cross-chain communication without external bridges in a multi-chain environment.
+
 ## Features
 
-- **Multi-Hop Messages**: Pass messages from chain-to-chain without user interaction.
-- **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
-- **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
-- **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
+- **Multi-Hop Messages**: Facilitates the passage of messages across multiple blockchain networks in a sequential manner.
+- **Cross-Chain Functionality**: Demonstrates the ability to conduct cross-chain interactions using the underlying capabilities of the CryptoLink.Tech framework.
+- **CryptoLink.Tech Integration**: Implements the CryptoLink.Tech NPM package, showcasing its utility in cross-chain messaging.
 
 ## Prerequisites
 
@@ -43,7 +44,7 @@ Please open a terminal to run the following commands. You can use any terminal o
    Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
     ```
     PRIVATE_KEY=0000000000000000000000000000
-    `
+    ```
 
 ## Deployment
 
