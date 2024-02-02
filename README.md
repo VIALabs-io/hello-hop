@@ -17,8 +17,8 @@ Before you begin, ensure you have the following installed:
 - Testnet Tokens 
   - [fantom testnet faucet](https://faucet.fantom.network/) 
   - [polygon testnet faucet](https://faucet.polygon.technology/)
-  - [avalanche testnet faucet]()
-  - [ethereum holesky testnet faucet]()
+  - [avalanche testnet faucet](https://core.app/tools/testnet-faucet/?subnet=c&token=c)
+  - [ethereum holesky testnet faucet](https://www.coingecko.com/learn/holesky-testnet-eth)
 
 Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
 
