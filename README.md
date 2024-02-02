@@ -124,3 +124,53 @@ To start a message off, the `go()` method is called on any of the networks the c
 npx hardhat --network fantom-testnet go --path 80001,43113,17000
 ```
 
+## Contract Breakdown
+
+The `HelloHOP` contract is a Solidity implementation designed for demonstrating cross-chain message passing using the CryptoLink.Tech framework. It allows messages to be sent sequentially across multiple blockchain networks.
+
+### Contract Overview
+
+- **Inheritance**:
+  - `MessageClient`: Inherits from the CryptoLink.Tech's `MessageClient` for handling cross-chain messages.
+  - `Ownable`: Inherits from OpenZeppelin's `Ownable`, restricting certain functions to the contract owner.
+
+### Events
+
+- **`Go`**: Emitted when the message passing process is initiated.
+- **`Completed`**: Emitted when the message has traversed all the specified chains.
+- **`NextHop`**: Emitted on each hop to the next chain in the sequence.
+
+### Function: `go`
+
+```solidity
+function go(uint[] calldata _chainlist) external onlyOwner
+```
+
+- **Purpose**: Initiates the message passing process.
+- **Parameters**: `_chainlist` - an array of chain IDs representing the path for the message.
+- **Functionality**:
+  - Encodes the current chain ID, hop number (starting at 1), and the chain list into a byte array `_data`.
+  - Sends the message to the first chain in the list using `_sendMessage`.
+  - Triggers the `Go` event.
+
+### Function: `messageProcess`
+
+```solidity
+function messageProcess(uint, uint _sourceChainId, address _sender, address, uint, bytes calldata _data) external override onlySelf(_sender, _sourceChainId)
+```
+
+- **Purpose**: Handles incoming messages and forwards them if there are more hops to follow.
+- **Parameters**:
+  - `_sourceChainId`: Chain ID of the message sender.
+  - `_sender`: Address of the message sender.
+  - `_data`: Encoded data containing the start chain ID, hop count, and chain list.
+- **Functionality**:
+  - Decodes `_data` to extract the start chain ID, hop count, and chain list.
+  - If the current hop is the last one, emits the `Completed` event.
+  - Otherwise, increments the hop count, encodes a new message, and sends it to the next chain in the list.
+  - Emits the `NextHop` event for each successful hop to the next chain.
+
+### Security and Modifiers
+
+- **`onlyOwner` Modifier (from `Ownable`)**: Restricts the execution of the `go` function to the contract owner.
+- **`onlySelf` Modifier**: Ensures that the `messageProcess` function is only callable by the contract itself, as part of the cross-chain message handling.
