@@ -1,79 +1,125 @@
-# Around The World Bridge Example
-
-
-## Project Overview
-The "Around The World Example" (ATWTest) provides a hands-on experience of using the CryptoLink package for developers looking to integrate cross-chain functionalities into their blockchain applications. It features a smart contract, `ATWTest.sol`, that extends the `MessageClient` class to facilitate a continuous message loop across multiple blockchain networks. This loop demonstrates the intricate process of sending, receiving, and tracking messages in a multi-chain environment.
-
-This project is not just about showcasing cross-chain messaging; it also serves as a practical guide for deploying and managing multi-chain projects, particularly for those using Hardhat. It includes example scripts and tasks that illustrate how to set up and configure contracts across various blockchain networks, providing a real-world application of CryptoLink's technologies. This project is ideal for developers seeking to integrate cross-chain communication in their applications and looking for ways to manage complex blockchain deployments efficiently.
-
-## Learning Objectives
-- Understand the setup and usage of the CryptoLink npm package in a blockchain project.
-- Learn how to extend and implement the `MessageClient` class for cross-chain messaging.
-- Explore the configuration and deployment of smart contracts on various networks.
-- Gain insights into tracking and monitoring cross-chain message flows.
-
-## Prerequisites
-- Familiarity with Node.js, npm, and basic command-line operations.
-- Experience with Solidity and smart contract development.
-- Access to a Solidity development environment, such as Truffle or Hardhat.
-
+# HelloHOP Path Following Message Example
 
 ## Features
-- **Cross-chain Message Passing**: Demonstrates how to send and receive messages between contracts deployed on different blockchain networks using CryptoLink's MessageV3 system.
-- **Network Hopping**: Shows the ability of a message to traverse multiple networks and return to the origin, illustrating the robustness of the CryptoLink framework.
-- **Event Tracking**: Implements event logs to track the progress and route of the message across various chains, providing visibility into the cross-chain communication process.
 
-## Usage Instructions
+- **Multi-Hop Messages**: Pass messages from chain-to-chain without user interaction.
+- **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
+- **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
+- **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
 
-1. **Select Networks**: Choose the blockchain networks for deployment by editing `networks-testnet.json`.
-   ```bash
-   vim networks-testnet.json
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js and npm (Node Package Manager)
+- A text editor such as VSCode for editing `.sol` and `.ts` files
+- GIT installed
+- Testnet Tokens 
+  - [fantom testnet faucet](https://faucet.fantom.network/) 
+  - [polygon testnet faucet](https://faucet.polygon.technology/)
+  - [avalanche testnet faucet]()
+  - [ethereum holesky testnet faucet]()
+
+Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
+
+
+
+## Installation
+
+Please open a terminal to run the following commands. You can use any terminal of your choice, including the built in terminal in vscode (Terminal -> New Terminal)
+
+1. **Clone the Repository**: 
    ```
-   Example networks include Arbitrum Sepolia, Avalanche Testnet, Binance Testnet, Ethereum Goerli, Polygon Testnet, and others.
-
-2. **Deploy `ATWTest.sol` Contract**:
-   Deploy the contract to your chosen networks. Run the following command in your project directory:
-   ```bash
-   node scripts/deploy-testnets.js
+   git clone https://github.com/CryptoLinkTech/hello-hop.git
    ```
-   This script automates the deployment process across the specified blockchain networks.
 
-3. **Generate Network Configurations**:
-   After deployment, generate configuration files for each network:
-   ```bash
-   node scripts/configure-testnet-create.js
+   After cloning the repository, if using vscode or a similar IDE, you can now open the hello-hop folder in your IDE of choice.
+
+2. **Install Dependencies**:
    ```
-   This script creates necessary configuration files based on your network selections.
-
-4. **Apply Configurations to Networks**:
-   Implement the generated configurations on each network:
-   ```bash
-   node scripts/configure-testnet-apply.js
+   npm install
    ```
-   This step ensures that the `ATWTest.sol` contract on each chain is correctly configured to participate in the message loop.
 
-5. **Initiate the Message Loop**:
-   Start the message loop from a specific network using the `cl-atw-go.ts` script. Replace `<network name>` with the name of the network from which you want to start the loop:
-   ```bash
-   npx hardhat --network <network name> cl-atw-go
-   ```
-   This command triggers the `go` function in the `ATWTest.sol` contract, beginning the cross-chain message loop.
+3. **Set Up Environment Variables**:
+   Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
+    ```
+    PRIVATE_KEY=0000000000000000000000000000
+    `
 
-6. **Monitoring Progress**:
-   To track the message's journey, monitor the emitted events (`Go`, `Completed`, `NextHop`) on the blockchain explorers of the involved networks. This will provide insights into the message flow and the cross-chain interactions facilitated by the contract.
+## Deployment
 
-## Contributing to the Project
+Deploy the HelloHOP contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
 
-We welcome contributions to the "Around The World Example" project! Whether it's feature enhancements, bug fixes, documentation improvements, or additional examples, your input is valuable. Here’s how you can contribute:
+1. **Fantom Testnet Deployment:**
 
-1. **Submit Issues**: If you find bugs or have feature suggestions, please submit them as issues on the GitHub repository.
-2. **Pull Requests**: Feel free to fork the repository and submit pull requests with your changes.
-3. **Feedback and Ideas**: Share your feedback and ideas on how to improve the project or what additional examples you'd like to see.
+```
+npx hardhat --network fantom-testnet deploy
+```
 
-## Contact
+2. **Polygon Testnet Deployment:**
 
-For more information or if you have specific questions about the project, please reach out to Atlas at atlas@cryptolink.tech. We are eager to assist and collaborate with fellow developers and enthusiasts in the blockchain community.
+```
+npx hardhat --network polygon-testnet deploy
 
-## License
+```
+3. **Avalanche Testnet Deployment:**
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file in the GitHub repository for details. The MIT License is a permissive license that is short and to the point. It lets people do anything they want with your code as long as they provide attribution back to you and don’t hold you liable.
+```
+npx hardhat --network avalanche-testnet deploy
+```
+
+4. **Ethereum Holesky Testnet Deployment:**
+
+```
+npx hardhat --network ethereum-holesky deploy
+```
+
+## Configuration
+
+Edit the `networks.ts` file and include all of the networks the contract is deployed on.
+
+```
+const networks = [
+    "avalanche-testnet",
+    "ethereum-holesky",
+    "fantom-testnet",
+    "polygon-testnet"
+];
+export default networks;
+```
+
+Once all contracts are deployed across the desired networks and listed in `networks.ts`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
+
+1. **Fantom Testnet Configuration:**
+
+```
+npx hardhat --network fantom-testnet configure
+```
+
+2. **Polygon Testnet Configuration:**
+
+```
+npx hardhat --network polygon-testnet configure
+```    
+
+1. **Avalanche Testnet Configuration:**
+
+```
+npx hardhat --network avalanche-testnet configure
+```
+
+2. **Ethereum Holesky Testnet Configuration:**
+
+```
+npx hardhat --network ethereum-holesky configure
+```    
+
+## Usage
+
+### Initiating a Message
+
+To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
+
+```
+npx hardhat --network fantom-testnet go --path 80001,43113,17000
+```
+

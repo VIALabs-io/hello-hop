@@ -1,19 +1,14 @@
-import "@nomicfoundation/hardhat-ethers";
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";
-import "@nomicfoundation/hardhat-chai-matchers";
-import "@nomicfoundation/hardhat-ethers";
 import "@typechain/hardhat";
-import "hardhat-gas-reporter";
-import "solidity-coverage";
 
-import "./tasks/cl-atw-go";
-import "./tasks/cl-atw-configure";
+import "./tasks/go";
+import "./tasks/configure";
 
 const dotenv = require("dotenv");
 dotenv.config({ path: __dirname + "/.env" });
 
-const accounts = [
+const accounts_testnet = [
 	process.env.PRIVATE_KEY || "0xa8b700b331ea6e4859843cca6a005577448775a1b9e049dc387a061d6db6ded7",
 	"0xcd8cc7d8854e27234a50d1d372de92c612c17a0129923bfbbea0e94017f37fbb",
 	"0x06b7ee5e6e301419e8eec0dd92f90bbac64ee6f1db77c93303ef55f69375692b",
@@ -50,473 +45,322 @@ const config: any = {
 			chainId: 421614,
 			url: "https://sepolia-rollup.arbitrum.io/rpc",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"aurora-testnet": {
 			chainId: 1313161555,
 			url: "https://testnet.aurora.dev",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
+		"autonity-testnet": {
+			chainId: 65010001,
+			url: "https://rpc1.bakerloo.autonity.org",
+			live: false,
+			accounts: accounts_testnet,
+		},		
 		"avalanche-testnet": {
 			chainId: 43113,
 			url: "https://api.avax-test.network/ext/bc/C/rpc",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"base-sepolia": {
 			chainId: 84532,
 			url: "https://sepolia.base.org",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"binance-testnet": {
 			chainId: 97,
 			url: "https://data-seed-prebsc-2-s1.binance.org:8545",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
+		},
+		"blast-testnet": {
+			chainId: 168587773,
+			url: "https://sepolia.blast.io",
+			live: false,
+			accounts: accounts_testnet,
 		},
 		"boba-testnet": {
 			chainId: 2888,
 			url: "https://goerli.boba.network",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},		
 		"canto-testnet": {
 			chainId: 7701,
 			url: "https://canto-testnet.plexnode.wtf",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"celo-testnet": {
 			chainId: 44787,
 			url: "https://alfajores-forno.celo-testnet.org",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"cronos-testnet": {
 			chainId: 338,
 			url: "https://evm-t3.cronos.org/",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
+		},
+		"cronoszk-testnet": {
+			chainId: 282,
+			url: "https://rpc-zkevm-t0.cronos.org",
+			live: false,
+			accounts: accounts_testnet,
+			zksync: true,
 		},
 		"ethereum-goerli": {
 			chainId: 5,
 			url: "https://ethereum-goerli.publicnode.com",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},		
 		"ethereum-holesky": {
 			chainId: 17000,
 			url: "https://ethereum-holesky.publicnode.com",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},		
 		"ethereum-sepolia": {
 			chainId: 11155111,
 			url: "https://eth-sepolia.public.blastapi.io",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},		
 		"fantom-testnet": {
 			chainId: 4002,
 			url: "https://rpc.testnet.fantom.network",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"frame-testnet": {
 			chainId: 68840142,
 			url: "https://rpc.testnet.frame.xyz/http",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},		
 		"gauss-testnet": {
 			chainId: 1452,
 			url: "https://rpc.giltestnet.com",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
+		},
+		"gelato-op-celestia-testnet": {
+			chainId: 123420111,
+			url: "https://rpc.op-celestia-testnet.gelato.digital",
+			live: false,
+			accounts: accounts_testnet,
+		},
+		"gelato-op-testnet": {
+			chainId: 42069,
+			url: "https://rpc.op-testnet.gelato.digital",
+			live: false,
+			accounts: accounts_testnet,
+		},
+		"gelato-zkatana-testnet": {
+			chainId: 1261120,
+			url: "https://rpc.zkatana.gelato.digital",
+			live: false,
+			accounts: accounts_testnet,
 		},
 		"gnosis-testnet": {
 			chainId: 10200,
 			url: "https://rpc.chiadochain.net",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"harmony-testnet": {
 			chainId: 1666700000,
 			url: "https://api.s0.b.hmny.io",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
+		"horizen-testnet": {
+			chainId: 1663,
+			url: "https://gobi-rpc.horizenlabs.io/ethv1",
+			live: false,
+			accounts: accounts_testnet,
+		},		
 		"immutable-testnet": {
 			chainId: 13473,
 			url: "https://rpc.testnet.immutable.com/",
 			live: false,
-			accounts: accounts,
-		},		
+			accounts: accounts_testnet,
+		},
+		"katla-testnet": {
+			chainId: 167008,
+			url: "https://rpc.katla.taiko.xyz",
+			live: false,
+			accounts: accounts_testnet,
+		},
 		"kava-testnet": {
 			chainId: 2221,
 			url: "https://evm.testnet.kava.io",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"klaytn-testnet": {
 			chainId: 1001,
 			url: "https://public-en-baobab.klaytn.net",
 			live: false,
-			accounts: accounts,
-		},
+			accounts: accounts_testnet,
+		},		
 		"kyoto-testnet": {
 			chainId: 1998,
 			url: "https://rpc.testnet.kyotoprotocol.io:8545",
 			live: false,
-			accounts: accounts,
-		},		
+			accounts: accounts_testnet,
+		},
 		"linea-testnet": {
 			chainId: 59140,
 			url: "https://rpc.goerli.linea.build",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
+		},		
+		"mainnetz-testnet": {
+			chainId: 9768,
+			url: "https://testnet-rpc.mainnetz.io",
+			live: false,
+			accounts: accounts_testnet,
+		},
+		"mantle-testnet": {
+			chainId: 5001,
+			url: "https://rpc.testnet.mantle.xyz",
+			live: false,
+			accounts: accounts_testnet,
 		},
 		"metis-testnet": {
 			chainId: 599,
 			url: "https://goerli.gateway.metisdevops.link/",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},	
 		"oasis-emerald-testnet": {
 			chainId: 42261,
 			url: "https://testnet.emerald.oasis.dev",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"oasis-sapphire-testnet": {
 			chainId: 23295,
 			url: "https://testnet.sapphire.oasis.dev",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"okex-testnet": {
 			chainId: 65,
 			url: "https://exchaintestrpc.okex.org",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"onus-testnet": {
 			chainId: 1945,
 			url: "https://rpc-testnet.onuschain.io",
 			live: false,
-			accounts: accounts,
-		},		
+			accounts: accounts_testnet,
+		},
+		"opbnb-testnet": {
+			chainId: 5611,
+			url: "https://opbnb-testnet-rpc.bnbchain.org",
+			live: false,
+			accounts: accounts_testnet,
+		},
 		"optimism-sepolia": {
 			chainId: 11155420,
 			url: "https://sepolia.optimism.io",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"polygon-testnet": {
 			chainId: 80001,
 			url: "https://rpc-mumbai.maticvigil.com/",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"polygonzk-testnet": {
 			chainId: 1442,
 			url: "https://rpc.public.zkevm-test.net",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"pulse-testnet": {
 			chainId: 943,
 			url: "https://pulsechain-testnet.publicnode.com",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"redstone-testnet": {
 			chainId: 17001,
 			url: "https://rpc.holesky.redstone.xyz",
 			live: false,
-			accounts: accounts,
-		},		
+			accounts: accounts_testnet,
+		},
+		"rollux-testnet": {
+			chainId: 57000,
+			url: "https://rpc-tanenbaum.rollux.com",
+			live: false,
+			accounts: accounts_testnet,
+		},			
 		"scroll-testnet": {
 			chainId: 534351,
 			url: "https://sepolia-rpc.scroll.io",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},	
+		"sonic-testnet": {
+			chainId: 64165,
+			url: "https://rpc.sonic.fantom.network/",
+			live: false,
+			accounts: accounts_testnet,
+		},
+		"starknet-testnet": {
+			chainId: 534351,
+			url: "https://json-rpc.starknet-testnet.public.lavanet.xyz",
+			live: false,
+			accounts: accounts_testnet,
+		},	
+		"stratos-testnet": {
+			chainId: 2047,
+			url: "https://web3-rpc-mesos.thestratos.org",
+			live: false,
+			accounts: accounts_testnet,
+		},
 		"telos-testnet": {
 			chainId: 41,
 			url: "https://testnet.telos.net/evm",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"x1-testnet": {
 			chainId: 195,
 			url: "https://testrpc.x1.tech/",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"xdc-testnet": {
 			chainId: 51,
 			url: "https://erpc.apothem.network/",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},
 		"zetachain-testnet": {
 			chainId: 7001,
 			url: "https://zetachain-athens-evm.blockpi.network/v1/rpc/public",
 			live: false,
-			accounts: accounts,
+			accounts: accounts_testnet,
 		},		
-
-		
-		"alveychain-mainnet": {
-			chainId: 3797,
-			url: "https://elves-core1.alvey.io/",
-			live: true,
-			accounts: accounts,
+		"zksync-testnet": {
+			chainId: 280,
+			url: "https://testnet.era.zksync.dev",
+			live: false,
+			accounts: accounts_testnet,
+			zksync: true,
 		},
-		"arbitrum-mainnet": {
-			chainId: 42161,
-			url: "https://arbitrum-one.public.blastapi.io",
-			live: true,
-			accounts: accounts,
-		},
-		"aurora-mainnet": {
-			chainId: 1313161554,
-			url: "https://mainnet.aurora.dev",
-			live: true,
-			accounts: accounts,
-		},
-		"autonity-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"avalanche-mainnet": {
-			chainId: 43114,
-			url: "https://api.avax.network/ext/bc/C/rpc",
-			live: true,
-			accounts: accounts,
-		},
-		"base-mainnet": {
-			chainId: 8453,
-			url: "https://base.llamarpc.com",
-			live: true,
-			accounts: accounts,
-		},
-		"boba-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"binance-mainnet": {
-			chainId: 56,
-			url: "https://bsc-dataseed.binance.org",
-			live: true,
-			accounts: accounts,
-		},
-		"canto-mainnet": {
-			chainId: 7700,
-			url: "https://canto.slingshot.finance",
-			live: true,
-			accounts: accounts,
-		},		
-		"celo-mainnet": {
-			chainId: 42220,
-			url: "https://rpc.ankr.com/celo",
-			live: true,
-			accounts: accounts,
-		},
-		"cronos-mainnet": {
-			chainId: 25,
-			url: "https://cronos-evm.publicnode.com",
-			live: true,
-			accounts: accounts,
-		},
-		"ethereum-mainnet": {
-			chainId: 1,
-			url: "https://ethereum.publicnode.com",
-			live: true,
-			accounts: accounts,
-		},
-		"fantom-mainnet": {
-			chainId: 250,
-			url: "https://rpc.ankr.com/fantom",
-			live: true,
-			accounts: accounts,
-		},
-		"forest-mainnet": {
-			chainId: 484,
-			url: "",
-			live: true,
-			accounts: accounts,
-		},
-		"frame-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"gauss-mainnet": {
-			chainId: 1777,
-			url: "https://rpc.gaussgang.com/",
-			live: true,
-			accounts: accounts,
-		},
-		"gnosis-mainnet": {
-			chainId: 100,
-			url: "https://gnosis.drpc.org",
-			live: true,
-			accounts: accounts,
-		},
-		"harmony-mainnet": {
-			chainId: 1666600000,
-			url: "https://a.api.s0.t.hmny.io",
-			live: true,
-			accounts: accounts,
-		},
-		"horizen-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"katla-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"kava-mainnet": {
-			chainId: 2222,
-			url: "https://evm.kava.io",
-			live: true,
-			accounts: accounts,
-		},
-		"klaytn-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"linea-mainnet": {
-			chainId: 59144,
-			url: "https://rpc.linea.build",
-			live: true,
-			accounts: accounts,
-		},
-		"mainnetz-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"metis-mainnet": {
-			chainId: 1088,
-			url: "https://andromeda.metis.io/?owner=1088",
-			live: true,
-			accounts: accounts,
-		},
-		"oasis-emerald-mainnet": {
-			chainId: 42262,
-			url: "https://emerald.oasis.dev",
-			live: true,
-			accounts: accounts,
-		},
-		"oasis-sapphire-mainnet": {
-			chainId: 23294,
-			url: "https://sapphire.oasis.dev",
-			live: true,
-			accounts: accounts,
-		},
-		"okex-mainnet": {
-			chainId: 66,
-			url: "https://exchainrpc.okex.org",
-			live: true,
-			accounts: accounts,
-		},
-		"onus-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"opbnb-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"optimism-mainnet": {
-			chainId: 10,
-			url: "https://rpc.ankr.com/optimism",
-			live: true,
-			accounts: accounts,
-		},
-		"polygon-mainnet": {
-			chainId: 137,
-			url: "https://polygon-rpc.com",
-			live: true,
-			accounts: accounts,
-		},
-		"polygonzk-mainnet": {
-			chainId: 1101,
-			url: "https://polygon-zkevm.drpc.org",
-			live: true,
-			accounts: accounts,
-		},
-		"pulse-mainnet": {
-			chainId: 369,
-			url: "https://rpc.pulsechain.com/",
-			live: true,
-			accounts: accounts,
-		},
-		"redstone-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"rollux-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"scroll-mainnet": {
-			chainId: 534352,
-			url: "https://rpc.scroll.io",
-			live: true,
-			accounts: accounts,
-		},
-		"telos-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-		"x1-mainnet": {
-			chainId: 196,
-			url: "",
-			live: true,
-			accounts: accounts,
-		},
-		"xdc-mainnet": {
-			chainId: 50,
-			url: "https://erpc.xinfin.network",
-			live: true,
-			accounts: accounts,
-		},
-		"zetachain-mainnet": {
-			chainId: 0,
-			url: "",
-			live: true,
-			accounts: accounts
-		},
-
 
 		// @note This MUST be hardhat, not localhost the docs are ambigious
 		hardhat: {

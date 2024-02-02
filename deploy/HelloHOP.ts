@@ -4,7 +4,7 @@ const func: DeployFunction = async function (hre: any) {
 	const { deployer } = await hre.getNamedAccounts();
 	const { deploy } = hre.deployments;
 
-	await deploy("ATWTest", {
+	await deploy("HelloHOP", {
 		from: deployer,
 		args: [],
 		log: true,
@@ -14,6 +14,6 @@ const func: DeployFunction = async function (hre: any) {
 };
 
 export default func;
-func.id = "deploy_atw_test";
-func.tags = ["ATWTest"];
+func.id = "deploy_hellohop";
+func.tags = ["HelloHOP"];
 func.dependencies = [];

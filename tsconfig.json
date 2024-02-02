@@ -10,9 +10,9 @@
 		"declarationMap": true,
 		"sourceMap": true,
 		"rootDir": "./",
-		"types": ["node", "mocha"],
+		"types": ["node"],
 		"typeRoots": ["./node_modules/@types", "./types", "./typechain-types"]
 	},
-	"include": ["./scripts", "./test", "./typechain", "./typechain-types", "./hardhat.config.ts", "./tasks", "./addresses.ts"],
+	"include": ["./scripts", "./test", "./typechain", "./typechain-types", "./hardhat.config.ts", "./tasks", "./networks.ts"],
 	"exclude": ["cache", "artifacts"]
 }
