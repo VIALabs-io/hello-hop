@@ -102,13 +102,13 @@ npx hardhat --network fantom-testnet configure
 npx hardhat --network polygon-testnet configure
 ```    
 
-1. **Avalanche Testnet Configuration:**
+3. **Avalanche Testnet Configuration:**
 
 ```
 npx hardhat --network avalanche-testnet configure
 ```
 
-2. **Ethereum Holesky Testnet Configuration:**
+4. **Ethereum Holesky Testnet Configuration:**
 
 ```
 npx hardhat --network ethereum-holesky configure
