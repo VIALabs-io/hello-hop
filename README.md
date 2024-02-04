@@ -52,25 +52,24 @@ Deploy the HelloHOP contract to your desired networks. This must be done for eac
 
 1. **Fantom Testnet Deployment:**
 
-```
+```bash
 npx hardhat --network fantom-testnet deploy
 ```
 
 2. **Polygon Testnet Deployment:**
 
-```
+```bash
 npx hardhat --network polygon-testnet deploy
-
 ```
+
 3. **Avalanche Testnet Deployment:**
-
-```
+```bash
 npx hardhat --network avalanche-testnet deploy
 ```
 
 4. **Ethereum Holesky Testnet Deployment:**
 
-```
+```bash
 npx hardhat --network ethereum-holesky deploy
 ```
 
@@ -78,7 +77,7 @@ npx hardhat --network ethereum-holesky deploy
 
 Edit the `networks.ts` file and include all of the networks the contract is deployed on.
 
-```
+```javascript
 const networks = [
     "avalanche-testnet",
     "ethereum-holesky",
@@ -92,25 +91,25 @@ Once all contracts are deployed across the desired networks and listed in `netwo
 
 1. **Fantom Testnet Configuration:**
 
-```
+```bash
 npx hardhat --network fantom-testnet configure
 ```
 
 2. **Polygon Testnet Configuration:**
 
-```
+```bash
 npx hardhat --network polygon-testnet configure
 ```    
 
 3. **Avalanche Testnet Configuration:**
 
-```
+```bash
 npx hardhat --network avalanche-testnet configure
 ```
 
 4. **Ethereum Holesky Testnet Configuration:**
 
-```
+```bash
 npx hardhat --network ethereum-holesky configure
 ```    
 
@@ -120,7 +119,7 @@ npx hardhat --network ethereum-holesky configure
 
 To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
 
-```
+```bash
 npx hardhat --network fantom-testnet go --path 80001,43113,17000
 ```
 
