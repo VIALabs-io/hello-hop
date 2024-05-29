@@ -305,7 +305,13 @@ const config: any = {
 			url: "https://rpc-tanenbaum.rollux.com",
 			live: false,
 			accounts: accounts_testnet,
-		},			
+		},
+		"polygon-amoy": {
+			chainId: 80002,
+			url: 'https://rpc-amoy.polygon.technology/',
+			live: false,
+			accounts: accounts_testnet,
+		},
 		"scroll-testnet": {
 			chainId: 534351,
 			url: "https://sepolia-rpc.scroll.io",
