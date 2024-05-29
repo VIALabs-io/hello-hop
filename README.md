@@ -120,7 +120,7 @@ npx hardhat --network ethereum-holesky configure
 To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network fantom-testnet go --path 80001,43113,17000
+npx hardhat --network fantom-testnet go --path 80002,43113,17000
 ```
 
 ## Contract Breakdown
