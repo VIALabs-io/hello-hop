@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
-// (c)2023 Atlas (atlas@cryptolink.tech)
+// (c)2023 Atlas (atlas@vialabs.io)
 pragma solidity =0.8.17;
 
-import "@cryptolink/contracts/message/MessageClient.sol";
+import "@vialabs-io/contracts/message/MessageClient.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract HelloHOP is MessageClient, Ownable {

@@ -1,12 +1,12 @@
 # HelloHOP Path Following Message Example
 
-`HelloHOP` is an example implementation designed to demonstrate the capabilities of CryptoLink.Tech technology in facilitating cross-chain message passing. This sample contract illustrates the use of the [CryptoLink.Tech NPM package](https://github.com/CryptoLinkTech/npm) for enabling messages to traverse multiple blockchain networks via a predefined sequence of chain IDs. It serves primarily as a technical showcase, highlighting the mechanics of cross-chain communication without external bridges in a multi-chain environment.
+`HelloHOP` is an example implementation designed to demonstrate the capabilities of VIA Labs technology in facilitating cross-chain message passing. This sample contract illustrates the use of the [VIA Labs NPM package](https://github.com/VIALabs-io/contracts) for enabling messages to traverse multiple blockchain networks via a predefined sequence of chain IDs. It serves primarily as a technical showcase, highlighting the mechanics of cross-chain communication without external bridges in a multi-chain environment.
 
 ## Features
 
 - **Multi-Hop Messages**: Facilitates the passage of messages across multiple blockchain networks in a sequential manner.
-- **Cross-Chain Functionality**: Demonstrates the ability to conduct cross-chain interactions using the underlying capabilities of the CryptoLink.Tech framework.
-- **CryptoLink.Tech Integration**: Implements the CryptoLink.Tech NPM package, showcasing its utility in cross-chain messaging.
+- **Cross-Chain Functionality**: Demonstrates the ability to conduct cross-chain interactions using the underlying capabilities of the VIA Labs framework.
+- **VIA Labs Integration**: Implements the VIA Labs NPM package, showcasing its utility in cross-chain messaging.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 1. **Clone the Repository**: 
    ```
-   git clone https://github.com/CryptoLinkTech/hello-hop.git
+   git clone https://github.com/VIALabs-io/hello-hop.git
    ```
 
    After cloning the repository, if using vscode or a similar IDE, you can now open the hello-hop folder in your IDE of choice.
@@ -48,7 +48,7 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 ## Deployment
 
-Deploy the HelloHOP contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
+Deploy the HelloHOP contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
 1. **Fantom Testnet Deployment:**
 
@@ -59,7 +59,7 @@ npx hardhat --network fantom-testnet deploy
 2. **Polygon Testnet Deployment:**
 
 ```bash
-npx hardhat --network polygon-testnet deploy
+npx hardhat --network polygon-amoy deploy
 ```
 
 3. **Avalanche Testnet Deployment:**
@@ -82,7 +82,7 @@ const networks = [
     "avalanche-testnet",
     "ethereum-holesky",
     "fantom-testnet",
-    "polygon-testnet"
+    "polygon-amoy"
 ];
 export default networks;
 ```
@@ -98,7 +98,7 @@ npx hardhat --network fantom-testnet configure
 2. **Polygon Testnet Configuration:**
 
 ```bash
-npx hardhat --network polygon-testnet configure
+npx hardhat --network polygon-amoy configure
 ```    
 
 3. **Avalanche Testnet Configuration:**
@@ -117,7 +117,7 @@ npx hardhat --network ethereum-holesky configure
 
 ### Initiating a Message
 
-To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
+To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
 npx hardhat --network fantom-testnet go --path 80001,43113,17000
@@ -125,12 +125,12 @@ npx hardhat --network fantom-testnet go --path 80001,43113,17000
 
 ## Contract Breakdown
 
-The `HelloHOP` contract is a Solidity implementation designed for demonstrating cross-chain message passing using the CryptoLink.Tech framework. It allows messages to be sent sequentially across multiple blockchain networks.
+The `HelloHOP` contract is a Solidity implementation designed for demonstrating cross-chain message passing using the VIA Labs framework. It allows messages to be sent sequentially across multiple blockchain networks.
 
 ```solidity
 pragma solidity =0.8.17;
 
-import "@cryptolink/contracts/message/MessageClient.sol";
+import "@vialabs-io/contracts/message/MessageClient.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract HelloHOP is MessageClient, Ownable {
@@ -181,7 +181,7 @@ contract HelloHOP is MessageClient, Ownable {
 ### Contract Overview
 
 - **Inheritance**:
-  - `MessageClient`: Inherits from the CryptoLink.Tech's `MessageClient` for handling cross-chain messages.
+  - `MessageClient`: Inherits from the VIA Labs' `MessageClient` for handling cross-chain messages.
   - `Ownable`: Inherits from OpenZeppelin's `Ownable`, restricting certain functions to the contract owner.
 
 ### Events
