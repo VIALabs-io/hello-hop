@@ -1,7 +1,7 @@
 const networks = [
     "avalanche-testnet",
     "ethereum-holesky",
-    "fantom-testnet",
-    "polygon-testnet"
+    "ethereum-sepolia",
+    "polygon-amoy"
 ];
 export default networks;

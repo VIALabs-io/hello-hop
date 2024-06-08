@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed:
 - A text editor such as VSCode for editing `.sol` and `.ts` files
 - GIT installed
 - Testnet Tokens 
-  - [fantom testnet faucet](https://faucet.fantom.network/) 
+  - [ethereum sepolia faucet](https://chainstack.com/sepolia-faucet/)
   - [polygon testnet faucet](https://faucet.polygon.technology/)
   - [avalanche testnet faucet](https://core.app/tools/testnet-faucet/?subnet=c&token=c)
   - [ethereum holesky testnet faucet](https://www.coingecko.com/learn/holesky-testnet-eth)
@@ -50,10 +50,10 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 Deploy the HelloHOP contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
-1. **Fantom Testnet Deployment:**
+1. **Ethereum Sepolia Deployment:**
 
 ```bash
-npx hardhat --network fantom-testnet deploy
+npx hardhat --network ethereum-sepolia deploy
 ```
 
 2. **Polygon Testnet Deployment:**
@@ -78,21 +78,20 @@ npx hardhat --network ethereum-holesky deploy
 Edit the `networks.ts` file and include all of the networks the contract is deployed on.
 
 ```javascript
-const networks = [
-    "avalanche-testnet",
-    "ethereum-holesky",
-    "fantom-testnet",
-    "polygon-amoy"
-];
-export default networks;
+[
+  "avalanche-testnet",
+  "ethereum-holesky",
+  "ethereum-sepolia",
+  "polygon-amoy"
+]
 ```
 
 Once all contracts are deployed across the desired networks and listed in `networks.ts`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
 
-1. **Fantom Testnet Configuration:**
+1. **Ethereum Sepolia Configuration:**
 
 ```bash
-npx hardhat --network fantom-testnet configure
+npx hardhat --network ethereum-sepolia configure
 ```
 
 2. **Polygon Testnet Configuration:**
@@ -120,7 +119,7 @@ npx hardhat --network ethereum-holesky configure
 To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network fantom-testnet go --path 80002,43113,17000
+npx hardhat --network ethereum-sepolia go --path 80002,43113,17000
 ```
 
 ## Contract Breakdown

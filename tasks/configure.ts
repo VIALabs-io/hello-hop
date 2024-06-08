@@ -1,8 +1,7 @@
+import fs from 'fs';
 import { task } from "hardhat/config";
+import chainsConfig from "@vialabs-io/contracts/config/chains";
 import networks from "../networks";
-const chainsConfig = require('@vialabs-io/contracts/config/chains');
-
-const fs = require('fs');
 
 task("configure", "")
 	.addOptionalParam("signer", "Custom signer (private key)")
