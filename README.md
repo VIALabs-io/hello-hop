@@ -1,12 +1,12 @@
 # HelloHOP Path Following Message Example
 
-`HelloHOP` is an example implementation designed to demonstrate the capabilities of VIA Labs technology in facilitating cross-chain message passing. This sample contract illustrates the use of the [VIA Labs NPM package](https://github.com/VIALabs-io/contracts) for enabling messages to traverse multiple blockchain networks via a predefined sequence of chain IDs. It serves primarily as a technical showcase, highlighting the mechanics of cross-chain communication without external bridges in a multi-chain environment.
+`HelloHOP` is an example implementation designed to demonstrate the capabilities of VIA Labs technology in facilitating cross-chain message passing. This sample contract illustrates the use of the [VIA Labs package](https://github.com/VIALabs-io/contracts) for enabling messages to traverse multiple blockchain networks via a predefined sequence of chain IDs. It serves primarily as a technical showcase, highlighting the mechanics of cross-chain communication without external bridges in a multi-chain environment.
 
 ## Features
 
 - **Multi-Hop Messages**: Facilitates the passage of messages across multiple blockchain networks in a sequential manner.
 - **Cross-Chain Functionality**: Demonstrates the ability to conduct cross-chain interactions using the underlying capabilities of the VIA Labs framework.
-- **VIA Labs Integration**: Implements the VIA Labs NPM package, showcasing its utility in cross-chain messaging.
+- **VIA Labs Integration**: Implements the VIA Labs package, showcasing its utility in cross-chain messaging.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 ## Deployment
 
-Deploy the HelloHOP contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
+Deploy the HelloHOP contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [Package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
 1. **Ethereum Sepolia Deployment:**
 
@@ -116,7 +116,7 @@ npx hardhat --network ethereum-holesky configure
 
 ### Initiating a Message
 
-To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
+To start a message off, the `go()` method is called on any of the networks the contract is deployed on, and the path desired is set with the `--path` parameter followed by a comma seperated list of Chain IDs. Chain IDs can be looked up in the [Package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
 npx hardhat --network ethereum-sepolia go --path 80002,43113,17000
